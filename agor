@@ -1,0 +1,99 @@
+algoritmo "semnome"
+// Função :
+// Autor :
+// Data : 10/11/2014
+// Seção de Declarações
+var
+caaso7, loiras, cabeloLoiroMulher, idade, inHomem, inMulher, cabeloBranco,cabeloRuivoMenor, cabeloLoiro, cabeloMulherMorena, cabeloHomemMorenoMaior, i, branco40:inteiro
+altura, PorHomemMorenoMaior, PorCabeloRuivoMenor, PorPessoaMenorAlturaEstimada, porLoiras: real
+sexo, cabelo: caracter
+inicio
+
+i <- 1
+para i de 1 ate 300 faca
+
+   escreval("Digite sua idade")
+   leia (idade)
+   escreval("Digite a cor de seus cabelos loiro(l), ruivo(r), moreno(mo), branco(b)")
+   leia(cabelo)
+   escreval("Digite o sexo Feminino(f), Masculino(m):")
+   leia(sexo)
+   escreval("Digite sua altura")
+   leia(altura)
+   // Número de homens
+   se (sexo = "m") entao
+      inHomem <- inHomem + 1
+      escreval("Homens = ", inHomem)
+   fimse
+   // Númemro de mulheres
+   se (sexo = "f") entao
+      inMulher <- inMulher + 1
+      escreval("Mulheres = ", inMulher)
+   fimse
+   //Número de cabelos loiros
+   se (cabelo = "l") entao
+      cabeloLoiro <- cabeloLoiro + 1
+      escreval("Loiros = ", cabeloLoiro)
+   fimse
+
+   se (cabelo = "l") e (sexo = "f") entao
+      cabeloLoiroMulher <- cabeloLoiroMulher + 1
+      escreval("Loiras = ", cabeloLoiroMulher)
+   fimse
+
+   //Número de cabelos brancos
+   se (cabelo = "b") entao
+      cabeloBranco <- cabeloBranco + 1
+      se (idade >= 40) e (idade <= 60) entao // Cabelos brancos entre 40 e 60 anos
+         branco40 <- branco40+1
+         escreval("Brancos idade acima 40 = ", branco40 )
+      fimse
+   fimse
+
+   //Número de cabelos ruivos
+   se (cabelo = "r") entao
+      se(idade < 18) e (altura >= 1.7) e (sexo = "f") entao
+         cabeloRuivoMenor <- cabeloRuivoMenor + 1
+         escreval("Ruivos = ", cabeloRuivoMenor)
+      fimse
+   fimse
+   //Número de cabelos morenos
+   se (cabelo = "mo") entao
+      se (sexo = "m") e (idade >= 18) entao // Homens morenos e menores
+         cabeloHomemMorenoMaior <- cabeloHomemMorenoMaior + 1
+         escreval("Morenos homem= ", cabeloHomemMorenoMaior)
+      fimse
+   fimse
+
+   se (idade < 18) e (altura >= 1.55) e (altura <= 1.80) e (cabelo <> "mo") e (cabelo <> "l") entao
+      caaso7 <- caaso7 + 1
+   fimse
+
+   i <- i + 1
+fimpara
+
+
+escreval("Número de homens = ", inHomem)
+escreval("Número de mulheres = ", inMulher)
+
+porLoiras <- ( cabeloLoiroMulher * 100 ) / 300
+escreval("Porcentagem de loiras = ", porLoiras)
+
+
+PorHomemMorenoMaior <- (cabeloHomemMorenoMaior * 100) / 300
+escreval("Homens morenos maiores de idade = ", PorHomemMorenoMaior )
+
+PorCabeloRuivoMenor <- (CabeloRuivoMenor * 100) / 300
+escreval("Mulheres ruivas menores de idade e com mais de 1,70 m = ", PorCabeloRuivoMenor)
+
+escreval("Pessoas com cabelo branco de idade entre 40 e 60 anos =", cabeloBranco)
+
+PorPessoaMenorAlturaEstimada <- (caaso7 * 100) / 300
+escreval("Percentual de menores, entre 1,55 e 1,80 = ", PorPessoaMenorAlturaEstimada)
+
+
+
+
+
+
+fimalgoritmo
